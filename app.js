@@ -71,7 +71,8 @@ var MOUNTAINS = [
     {name: "Mount Blanc", height: 4808, country: "Italy/France"},
     {name: "Vaalserberg", height: 323, country: "Netherlands"},
     {name: "Denali", height: 6168, country: "United States"},
-    {name: "Popocatepetl", height: 5465, country: "Mexico"}
+    {name: "Popocatepetl", height: 5465, country: "Mexico"},
+    {name: "Test Mount", height: 34, country: "Cuba"}
 ];
 
 if (typeof module != "undefined" && module.exports) {
@@ -91,6 +92,25 @@ UnderlinedCell.prototype.draw = function(width, height) {
     return this.inner.draw(width, height - 1)
     .concat([repeat("-", width)]);
 };
+
+function StretchCell(inner, width, height) {
+    this.inner = inner;
+    this.width = width;
+    this.height = height;
+}
+
+StretchCell.prototype.minWidth = function() {
+    return this.width;
+}
+
+StretchCell.prototype.minHeight = function() {
+    return this.height;
+}
+
+StretchCell.prototype.draw = function(width, height) {
+    return this.inner.draw(Math.max(width, this.width),
+        Math.max(height, this.height));
+}
 
 function dataTable(data) {
     var keys = Object.keys(data[0]);
@@ -136,9 +156,12 @@ function dataTableR(data) {
     var headers = keys.map(function(name) {
         return new UnderlinedCell(new TextCell(name));
     });
-    var body = data.map(function(row) {
+    var body = data.map(function(row, item) {
         return keys.map(function(name) {
             var value = row[name];
+            if (item == (data.length - 1) && typeof value == "number") {
+                return new StretchCell(new RTextCell(String(value)), 9, 2);
+            }
             // This was changed
             if (typeof value == "number") {
                 return new RTextCell(String(value));
