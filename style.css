@@ -1,5 +1,7 @@
 body {
     background: #f9e933;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 100%;
 }
 
 header, main, footer {
@@ -13,8 +15,126 @@ header .container, main .container, footer .container {
 
 header {
     background: white;
+    overflow: auto;
+    padding: 40px;    
+    border-bottom: 3px solid;
+    border-bottom-color: linen
+}
+
+header h1 {
+    float: left;
+    width: 570px;
+}
+
+header nav {
+    float: right;
+    width: 285px;
 }
 
 main {
     background: white;
+    overflow: auto;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'ubuntu', sans-serif;
+}
+
+h2 {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+img {
+    float: right;
+    width: 285px;
+}
+
+.content {
+    float: left;
+    width: 570px;
+}
+
+.contact {
+    width: 570px;
+    float: left;
+    margin-left: 
+    
+}
+
+.sitemap {
+    width: 285px;
+    float: right;
+    overflow: hidden;
+}
+
+footer {
+    overflow: hidden;
+}
+
+.link-left {
+    float: left;
+}
+
+.link-right {
+    float: right;
+}
+
+header h1 {
+    color: firebrick;
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+a {
+    color: crimson;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content p {
+    margin-left: 20px;
+    margin-bottom: 40px;
+    
+}
+
+h3 {
+    font-size:1.5em;
+    margin: 20px;
+}
+
+ul {
+    margin: 20px
+}
+
+footer {
+    padding: 30px;
+}
+
+h4 {
+    margin: 10px;
+    font-size: larger;
+}
+
+footer p:nth-child(2) {
+    color: maroon;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+footer p {
+    margin-left: 10px;
 }
